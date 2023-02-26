@@ -18,5 +18,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/links', [\App\Http\Controllers\LinksController::class, 'show'])->name('links.show');
-Route::post('links', [\App\Http\Controllers\LinksController::class, 'send'])->name('links.send');
+Route::get('/links', [\App\Http\Controllers\LinkController::class, 'show'])->name('links.show');
+Route::post('links', [\App\Http\Controllers\LinkController::class, 'send'])->name('links.send');
