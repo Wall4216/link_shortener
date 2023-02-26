@@ -17,3 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/links', [\App\Http\Controllers\LinksController::class,'show'])->name('links.show');
+Route::post('/links', [\App\Http\Controllers\LinksController::class,'send'])->name('links.send');

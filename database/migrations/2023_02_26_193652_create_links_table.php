@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('source_link', 255);
             $table->string('link_key', 20)->unique();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
