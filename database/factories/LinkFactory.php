@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Link;
+use App\Service\LinkService;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,7 +20,9 @@ class LinkFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'source_link' => $this->faker->url,
+            'link_key' => app(LinkService::class)->getlinkPrefixGenerate(),
+            'description' => $this->faker->text(40),
         ];
     }
 }
