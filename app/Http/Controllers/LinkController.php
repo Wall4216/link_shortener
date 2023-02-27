@@ -20,8 +20,8 @@ class LinkController extends Controller
 
         $url = $request->input('url');
         $description = $request->input('description', null);
+        $urlPrefix = $service->getlinkPrefixGenerate();
 
-        $urlPrefix = $service->linkPrefixGenerate();
         $link = Link::create([
             'source_link' => $url,
             'link_key' => $urlPrefix,
