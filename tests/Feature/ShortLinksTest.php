@@ -23,11 +23,11 @@ class ShortLinksTest extends TestCase
     {
         $link_key = app(LinkService::class)->getlinkPrefixGenerate();
         $faker = Factory::create('ru_RU');
-        $response = $this->from('send')->post('/links', [
+        $response = $this->from('/links')->post('/links', [
            'source_link' => $faker->url,
             'link_key' => $link_key,
-            'description' => $faker->description,
-        ])->assertRedirect('send')->assertStatus(Response::HTTP_OK);
+            'description' => $faker->text(40),
+        ])->assertRedirect('/links')->assertStatus(Response::HTTP_FOUND);
 
     }
 }
