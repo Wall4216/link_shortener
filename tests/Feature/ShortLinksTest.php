@@ -27,4 +27,5 @@ class ShortLinksTest extends TestCase
         $response = $this->post('/links', ['url' => $url]);
         $response->assertStatus(Response::HTTP_CREATED);
     }
+
 }
