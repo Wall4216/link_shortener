@@ -24,7 +24,7 @@ class LinksRequest extends FormRequest
     public function rules()
     {
         return [
-            'url' => ['string', 'url'],
+            'source_link' => ['string', 'url'],
             'description' => ['sometimes'],
 
         ];
