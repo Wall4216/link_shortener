@@ -30,6 +30,9 @@
                     </div>
                 @endforeach
                 @endif
+                @if(session()->has('success'))
+                    <p><strong>Новая ссылка: {{session()->get('success')}}</strong></p>
+                    @endif
                 <form action="{{route('links.send')}}" method="POST">
                     @csrf
                     <div class="shadow sm:overflow-hidden sm:rounded-md">
@@ -39,7 +42,7 @@
                                     <label for="company-website" class="block text-sm font-medium text-gray-700">Url</label>
                                     <div class="mt-1 flex rounded-md shadow-sm">
                                         <span class="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-sm text-gray-500">http://</span>
-                                        <input type="text" name="company-website" id="company-website" class="block w-full flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="https://example.com">
+                                        <label for="source_link"></label><input type="text" name="source_link" id="source_link" class="block w-full flex-1 rounded-none rounded-r-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" >
                                     </div>
                                 </div>
                             </div>
