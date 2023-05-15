@@ -44,4 +44,21 @@ class LinkController extends Controller
         }
         throw new NotFoundHttpException('Prefix not found');
     }
+    public function awayt(string $prefix)
+
+    {
+
+        $link = Link::where(['link_key' => $prefix])->first();
+
+        if($link)
+
+        {
+
+            return redirect()->away($link->source_link);
+
+        }
+
+        throw new NotFoundHttpException('Prefix not found');
+
+    }
 }
