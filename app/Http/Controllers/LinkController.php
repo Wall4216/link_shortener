@@ -15,9 +15,9 @@ class LinkController extends Controller
     {
         return view('links.show');
     }
+
     public function send(LinksRequest $request, LinkService $service)
     {
-
         $url = $request->input('url');
         $description = $request->input('description', null);
         $urlPrefix = $service->getlinkPrefixGenerate();
@@ -33,8 +33,10 @@ class LinkController extends Controller
         {
             return back()->with('success', route('links.away', ['prefix'=>$urlPrefix]));
         }
+
         return back()->with('errors', 'Не удалось сохранить ссылку');
     }
+
     public function away(string $prefix)
     {
         $link = Link::where(['link_key' => $prefix])->first();
@@ -42,23 +44,20 @@ class LinkController extends Controller
         {
             return redirect()->away($link->source_link);
         }
+
         throw new NotFoundHttpException('Prefix not found');
     }
-    public function awayt(string $prefix)
 
+    public function awayt(string $prefix)
     {
 
         $link = Link::where(['link_key' => $prefix])->first();
 
-        if($link)
-
+        if ($link)
         {
-
             return redirect()->away($link->source_link);
-
         }
 
         throw new NotFoundHttpException('Prefix not found');
-
     }
 }
